@@ -20,7 +20,7 @@ class HomePage extends React.Component{
           </div>
         </div>
         <div className="features-screen">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
               <div className="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                 <div className="features-text">

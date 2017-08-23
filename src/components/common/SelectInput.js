@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SelectInput = ({name,label,onChange,placeholder,value,error,options}) => {
   return(

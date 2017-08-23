@@ -1,4 +1,6 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import {connect} from 'react-redux';
@@ -8,9 +10,13 @@ class App extends React.Component {
     return (
       <div className="container-fluid ">
         <Header/>
-        <div className="row">{this.props.children}</div>
+        <div className="row">
+          <MuiThemeProvider>
+              {this.props.children}
+          </MuiThemeProvider>
+        </div>
         <div className="row"><Footer /></div>
-      {this.props.loading && <div className="loading-overlay">
+        {this.props.loading && <div className="loading-overlay">
           <div className="text"><h1>Loading</h1><p>Please wait!</p></div>
         </div>}
       </div>

@@ -5,7 +5,6 @@ import {render} from 'react-dom';
 import configureStore from './store/ConfigureStore';
 import {Provider} from 'react-redux';
 import {Router, browserHistory} from 'react-router';
-import {fetchAPOD} from './actions/ApodActions';
 import {fetchEpicDates} from './actions/EpicActions';
 import routes from './routes';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +13,7 @@ import './styles/styles.css';
 const store = configureStore();
 
 //For Laoding Data on App Load
-// store.dispatch(fetchEpicDates());
+store.dispatch(fetchEpicDates('natural'));
 
 render(
   <Provider store={store}>

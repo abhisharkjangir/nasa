@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as CONST from '../../constants/constants';
 import SelectDropdown from '../common/Select';
@@ -16,7 +17,10 @@ class EpicPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.fetchEpicDates(this.props.epic.filter.type);
+    // this.props.actions.fetchEpicDates(this.props.epic.filter.type);
+    console.log( this.props.epic.filter.date);
+    // let payload = {type :'natural',date : this.props.epic.filter.date};
+    // this.props.actions.fetchEpic(payload);
   }
 
   handleChange(event) {
@@ -29,10 +33,6 @@ class EpicPage extends React.Component {
   searchEpic() {
     let payload = {type :this.props.epic.filter.type,date : this.props.epic.filter.date};
     this.props.actions.fetchEpic(payload);
-  }
-
-  getImageUrl(epic){
-    return 'https://epic.gsfc.nasa.gov/archive/enhanced/2017/08/15/png/epic_RGB_20170815000830_02.png';
   }
 
   render(){
@@ -61,7 +61,7 @@ class EpicPage extends React.Component {
           </div>
           <div className="row">
             <div className="">
-              <div className="movie-listing">
+              <div className="epic-listing">
                 <div className="card-wrapper">
                   <div className="card-columns">
                     {this.props.epic.list && this.props.epic.list.map(epic =>
@@ -72,8 +72,8 @@ class EpicPage extends React.Component {
                             <h3 className="text-capitalize">{epic.type} epic</h3><hr/>
                           <h4>{Moment(epic.date).format('Do MMM YYYY HH:MM:SS A')}</h4>
                             <p>{epic.caption}</p>
-                          <button className="btn btn-white btn-block">Download Image</button>
-                        <button className="btn btn-white btn-block">See on Map</button>
+                            <a download={`${epic.image}.png`} href={`https://epic.gsfc.nasa.gov/archive/${epic.type}/${epic.date.split(' ')[0].split('-').join('/')}/png/${epic.image}.png`} className="btn btn-white btn-block">Download Image</a>
+                            <a href={`http://maps.google.com/maps?z=15&t=m&q=loc:${epic.centroid_coordinates.lat}+${epic.centroid_coordinates.lon}`} target="_blank" className="btn btn-white btn-block">See on Map</a>
                           </div>
                         </div>
                         <div className="card-detail">
@@ -96,7 +96,7 @@ class EpicPage extends React.Component {
 
 EpicPage.propTypes = {
   epic : PropTypes.object.isRequired,
-  actions : PropTypes.func
+  actions : PropTypes.object
 };
 
 const mapDispatchToProps = (dispatch) => ({

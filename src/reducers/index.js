@@ -4,6 +4,6 @@ import epic from './EpicReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 const rootReducer = combineReducers({
   apod,epic,ajaxCallsInProgress
-});
+})
 
-export default rootReducer;
+export default rootReducer

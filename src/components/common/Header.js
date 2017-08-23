@@ -1,4 +1,6 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import {Link,IndexLink} from 'react-router';
 import LoadingDots from './LoadingDots';
 
@@ -31,8 +33,5 @@ const Header = () => {
   );
 };
 
-Header.propTypes = {
-  loading : PropTypes.bool.isRequired
-};
 
 export default Header;

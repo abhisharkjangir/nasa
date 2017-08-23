@@ -5,7 +5,7 @@
     "plugin:import/warnings"
   ],
   "plugins": [
-    "react"
+    "react","prefer-object-spread"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -64,6 +64,7 @@
     "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "react/wrap-multilines": 1,
+    "prefer-object-spread/prefer-object-spread": 2
   }
 }

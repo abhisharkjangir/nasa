@@ -10,7 +10,7 @@ export function saveEpicDates(dates) {
 
 export function setDateFilter(date) {
   return {
-    type : types.SET_DATE_FILTER,date
+    type : types.EPIC_FILTER_UPDATE,date
   };
 }
 
@@ -30,16 +30,16 @@ const transformDates = (dates) => {
 
 export function fetchEpicDates(epictype) {
   return function (dispatch) {
-    dispatch(beginAjaxCall());
+    // dispatch(beginAjaxCall());
     return fetch(API.EPIC_NATURAL_DATES).then((response) => {
       response.json().then(json => {
         let transformedDates = transformDates(json)
         dispatch(saveEpicDates(transformedDates))
         dispatch(updateFilters({date : transformedDates[0].value}))
-        dispatch(ajaxCallError());
+        // dispatch(ajaxCallError());
       })
     }).catch(error => {
-      dispatch(ajaxCallError());
+      // dispatch(ajaxCallError());
       throw(error);
     })
   }
@@ -55,7 +55,6 @@ const transformEpics = (epics,type) => {
     return Object.assign({},epic,{type : type,imgurl : getImageUrl(epic,type)});
   })
 }
-
 
 export function fetchEpic(filter) {
   return function (dispatch) {
