@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CircularProgress from 'material-ui/CircularProgress';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import {connect} from 'react-redux';
@@ -17,7 +18,16 @@ class App extends React.Component {
         </div>
         <div className="row"><Footer /></div>
         {this.props.loading && <div className="loading-overlay">
-          <div className="text"><h1>Loading</h1><p>Please wait!</p></div>
+          <div className="text">
+            {/* <h1>Loading</h1><p>Please wait!</p> */}
+            <MuiThemeProvider>
+                <div>
+                  <CircularProgress color='white'/>
+                  <h3>Loading</h3>
+                </div>
+            </MuiThemeProvider>
+
+          </div>
         </div>}
       </div>
     );

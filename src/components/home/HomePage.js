@@ -53,7 +53,6 @@ class HomePage extends React.Component{
                   <button type="button" className="btn btn-primary " disabled="true">Explore Now</button>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
