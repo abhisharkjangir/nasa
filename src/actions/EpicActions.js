@@ -30,16 +30,13 @@ const transformDates = (dates) => {
 
 export function fetchEpicDates(epictype) {
   return function (dispatch) {
-    // dispatch(beginAjaxCall());
     return fetch(API.EPIC_NATURAL_DATES).then((response) => {
       response.json().then(json => {
         let transformedDates = transformDates(json)
         dispatch(saveEpicDates(transformedDates))
         dispatch(updateFilters({date : transformedDates[0].value}))
-        // dispatch(ajaxCallError());
       })
     }).catch(error => {
-      // dispatch(ajaxCallError());
       throw(error);
     })
   }

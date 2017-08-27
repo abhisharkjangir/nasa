@@ -8,8 +8,17 @@ class EarthPage extends React.Component {
 
   render(){
     return (
-      <div className="page-container">
-        <h1>Earth Page </h1>
+      <div className="page-container earth">
+        <div className="container">
+          <div className="row">
+            <div className='earth-page'>
+              <div className="col-md-12">
+                <h1>Earth Page</h1>
+                <h2>coming soon...</h2>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -4,13 +4,26 @@ import DatePicker from 'material-ui/DatePicker';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ApodActions from '../../actions/ApodActions';
-import YouTube from 'react-youtube';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import ImageViewer from '../common/ImageViewer';
 
 class ApodPage extends React.Component {
   constructor(props, context) {
     super();
+    this.state = ({zoom: false});
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.zoomImage = this.zoomImage.bind(this);
+    this.closeZoomImage = this.closeZoomImage.bind(this);
+  }
+
+  zoomImage(){
+    this.setState({zoom : true});
+  }
+
+  closeZoomImage(){
+    this.setState({zoom : false});
   }
 
   componentDidMount() {
@@ -24,20 +37,40 @@ class ApodPage extends React.Component {
 
   render() {
     return (
-      <div className="page-container">
+      <div className="page-container apod-page">
         <div className="container-fluid">
           <div className="row">
             {this.props.apod.data && <div className="apod">
               <div className="col-md-5">
                 <div className="apod-details">
-                  <h1>APOD Astronomy Picture of The Day</h1>
-                  <DatePicker
-                    hintText="Portrait Dialog" value={this.props.apod.date}
-                    onChange={this.handleDateChange} />
-                  <h3>{this.props.apod.data.title}</h3>
-                <h4>Date : {this.props.apod.data.date}</h4>
-                  <p>{this.props.apod.data.explanation}</p>
+                  <label>Astronomy Picture of</label>
+                  <DatePicker className='mui-datepicker'
+                    hintText="Portrait Dialog"
+                    value={this.props.apod.date}
+                    onChange={this.handleDateChange}
+                    autoOk={true}/>
+                  <h3>"{this.props.apod.data.title}"</h3>
+                  <h4>Date : {this.props.apod.data.date}</h4>
+                  <h4>{this.props.apod.data.explanation}</h4>
                   {this.props.apod.data.copyright && <p>Copyright : {this.props.apod.data.copyright}</p>}
+                  {this.props.apod.data.media_type == "image" &&
+                  <a download="Image" href={this.props.apod.data.hdurl} className="btn btn-white">
+                    <span className="glyphicon glyphicon-cloud-download"/> Download HD Image
+                  </a>
+                  }
+                  {this.props.apod.data.media_type == "image" &&
+                  <a className="btn btn-white" onClick={this.zoomImage}>
+                    <span className="glyphicon glyphicon-fullscreen"/> Zoom Image
+                  </a>
+                  }
+                  {this.state.zoom &&
+                    <ImageViewer
+                      className='animated slideInRight'
+                      imgurl={this.props.apod.data.url}
+                      imgclose={this.closeZoomImage}
+                      imgtitle={this.props.apod.data.title}
+                    />
+                  }
                 </div>
               </div>
               <div className="col-md-7 p-0">

@@ -1,8 +1,4 @@
-const getYesterdayDate = () => {
-  let today = new Date();
-  today.setDate(today.getDate()-1)
-  return today;
-}
+import {getYesterdayDate} from '../service/commonService';
 
 export default {
   ajaxCallsInProgress:false,

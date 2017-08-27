@@ -17,6 +17,12 @@ export function updateApodDate(date) {
   };
 }
 
+export function saveHomeApod(apod) {
+  return {
+    type : types.APOD_HOME_SAVE,apod
+  };
+}
+
 export function updateDate(date) {
   return function (dispatch) {
     dispatch(updateApodDate(date))
@@ -38,6 +44,22 @@ export function fetchApod(date) {
       })
     }).catch(error => {
       dispatch(ajaxCallError());
+      throw(error);
+    })
+  }
+}
+
+export function fetchHomeApod(date) {
+  return function (dispatch) {
+    return fetch(`https://api.nasa.gov/planetary/apod?date=${Moment(date).format('YYYY-MM-DD')}&api_key=VnMVNR0ECoKfGa9z6V3vtwTHCZB6UI8MWNdndAew`).then((response) => {
+      response.json().then(json => {
+        if (!json.code) {
+          dispatch(saveHomeApod(json))
+        }else {
+          toastr.error(json.msg)
+        }
+      })
+    }).catch(error => {
       throw(error);
     })
   }

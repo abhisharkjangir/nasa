@@ -18,7 +18,6 @@ class EpicPage extends React.Component {
 
   componentDidMount() {
     // this.props.actions.fetchEpicDates(this.props.epic.filter.type);
-    console.log( this.props.epic.filter.date);
     // let payload = {type :'natural',date : this.props.epic.filter.date};
     // this.props.actions.fetchEpic(payload);
   }
@@ -37,7 +36,7 @@ class EpicPage extends React.Component {
 
   render(){
     return (
-      <div className="page-container">
+      <div className="page-container epic-page">
         <div className="container-fluid">
           <div className="">
             <div className="row epic-filter">
@@ -70,10 +69,17 @@ class EpicPage extends React.Component {
                         <div className="overlay">
                           <div className=" text">
                             <h3 className="text-capitalize">{epic.type} epic</h3><hr/>
-                          <h4>{Moment(epic.date).format('Do MMM YYYY HH:MM:SS A')}</h4>
+                            <h4>{Moment(epic.date).format('Do MMM YYYY HH:MM:SS A')}</h4>
                             <p>{epic.caption}</p>
-                            <a download={`${epic.image}.png`} href={`https://epic.gsfc.nasa.gov/archive/${epic.type}/${epic.date.split(' ')[0].split('-').join('/')}/png/${epic.image}.png`} className="btn btn-white btn-block">Download Image</a>
-                            <a href={`http://maps.google.com/maps?z=15&t=m&q=loc:${epic.centroid_coordinates.lat}+${epic.centroid_coordinates.lon}`} target="_blank" className="btn btn-white btn-block">See on Map</a>
+                            <a
+                              download={`${epic.image}.png`}
+                              href={`https://epic.gsfc.nasa.gov/archive/${epic.type}/${epic.date.split(' ')[0].split('-').join('/')}/png/${epic.image}.png`} className="btn btn-white btn-block">
+                              <i className="glyphicon glyphicon-cloud-download"/> Download Image
+                            </a>
+                            <a href={`http://maps.google.com/maps?z=15&t=m&q=loc:${epic.centroid_coordinates.lat}+${epic.centroid_coordinates.lon}`}
+                              target="_blank" className="btn btn-white btn-block">
+                              <i className="glyphicon glyphicon-globe"/>See on Map
+                          </a>
                           </div>
                         </div>
                         <div className="card-detail">

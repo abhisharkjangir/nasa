@@ -13,20 +13,18 @@ class App extends React.Component {
         <Header/>
         <div className="row">
           <MuiThemeProvider>
-              {this.props.children}
+            {this.props.children}
           </MuiThemeProvider>
         </div>
-        <div className="row"><Footer /></div>
+        <div className="row"><Footer/></div>
         {this.props.loading && <div className="loading-overlay">
           <div className="text">
-            {/* <h1>Loading</h1><p>Please wait!</p> */}
             <MuiThemeProvider>
-                <div>
-                  <CircularProgress color='white'/>
-                  <h3>Loading</h3>
-                </div>
+              <div>
+                <CircularProgress color='white'/>
+                <h3>Loading</h3>
+              </div>
             </MuiThemeProvider>
-
           </div>
         </div>}
       </div>
@@ -35,13 +33,13 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  children : PropTypes.object.isRequired,
-  loading : PropTypes.bool.isRequired
+  children: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
-function mapStateToProps(state,ownProps) {
+function mapStateToProps(state, ownProps) {
   return {
-    loading : state.ajaxCallsInProgress > 0
+    loading: state.ajaxCallsInProgress > 0
   };
 }
 
