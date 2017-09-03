@@ -4,7 +4,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import configureStore from './store/ConfigureStore';
 import {Provider} from 'react-redux';
-import {Router, browserHistory} from 'react-router';
+import {Router, browserHistory, hashHistory} from 'react-router';
 import {fetchEpicDates} from './actions/EpicActions';
 import {fetchHomeApod} from './actions/ApodActions';
 import routes from './routes';
@@ -22,7 +22,7 @@ store.dispatch(fetchHomeApod(getYesterdayDate()));
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes}/>
+    <Router history={hashHistory} routes={routes}/>
   </Provider>,
   document.getElementById('app')
 );
