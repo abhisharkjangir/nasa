@@ -10,7 +10,7 @@ const app = express()
 app.use(compress())
 
 // ------------------------------------
-// Apply Webpack HMR Middleware
+// Apply Webpack HMR Middleware TO-BE-FIXED
 // ------------------------------------
 if (project.env === 'development') {
   const compiler = webpack(webpackConfig)
