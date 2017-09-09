@@ -9,7 +9,7 @@ class ImageViewer extends Component {
     return (
       <div className="image-viewer">
         <div className="close" onClick={this.props.imgclose}>
-          <span className='glyph  icon glyphicon-remove' />
+          <span className='glyphicon glyphicon-remove' />
         </div>
         <img src={this.props.imgurl} className="img" />
       </div>

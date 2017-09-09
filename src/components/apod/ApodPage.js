@@ -54,14 +54,14 @@ class ApodPage extends React.Component {
                   <h4>{this.props.apod.data.explanation}</h4>
                   {this.props.apod.data.copyright && <p>Copyright : {this.props.apod.data.copyright}</p>}
                   {this.props.apod.data.media_type == "image" &&
-                  <a download="Image" href={this.props.apod.data.hdurl} className="btn btn-white">
-                    <span className="glyphicon glyphicon-cloud-download"/> Download HD Image
-                  </a>
+                    <a download="Image" href={this.props.apod.data.hdurl} className="btn btn-white">
+                      <span className="glyphicon glyphicon-cloud-download"/> Download HD Image
+                    </a>
                   }
                   {this.props.apod.data.media_type == "image" &&
-                  <a className="btn btn-white" onClick={this.zoomImage}>
-                    <span className="glyphicon glyphicon-fullscreen"/> Zoom Image
-                  </a>
+                    <a className="btn btn-white" onClick={this.zoomImage}>
+                      <span className="glyphicon glyphicon-fullscreen"/> Zoom Image
+                    </a>
                   }
                   {this.state.zoom &&
                     <ImageViewer

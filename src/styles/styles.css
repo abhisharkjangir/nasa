@@ -695,9 +695,21 @@ form-control:focus {
 ================================= */
 .earth{
   background-color:  #fff;
-}
-.earth-page{
   color: #000;
+}
+.earth .earth-filter{
+  /*border-bottom: 2px solid #000;*/
+  padding: 10px;
+  background-color: #eee;
+}
+.earth .earth-image {
+  padding: 15px;
+}
+.earth .earth-image img {
+  display: block;
+  margin: auto;
+  height: auto;
+  max-width: 100%;
 }
 /* =================================
               Earth Page

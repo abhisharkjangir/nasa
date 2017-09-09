@@ -15,6 +15,8 @@ export default function epicReducer(state = intialState.epic,action) {
        };
      case types.EPIC_LIST_UPDATE:
       return Object.assign({},state,{list : action.list});
+    case types.EPIC_LIST_CLEAR:
+     return Object.assign({},state,{list : []});
      default:
       return state;
    }

@@ -37,7 +37,7 @@ class Header extends Component {
                 <li className=""><Link to="/apod" className="nav-link" >Apod</Link></li>
                 <li className=""><Link to="/epic" className="nav-link" >Epic</Link></li>
                 <li className=""><Link to="/earth" className="nav-link" >Earth</Link></li>
-                <li className=""><Link to="/about" className="nav-link" >about</Link></li>
+                {/* <li className=""><Link to="/about" className="nav-link" >about</Link></li> */}
               </ul>
             </div>
           </div>

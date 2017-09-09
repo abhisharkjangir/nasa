@@ -24,9 +24,6 @@ export default {
     }
   },
   earth : {
-    lat: 28.448552,
-    long: 77.072434,
-    date: new Date(),
-    cloud: true
+    filters : {}
   }
 };

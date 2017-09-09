@@ -69,3 +69,6 @@ export function fetchEpic(filter) {
     })
   }
 }
+export function clearEpicsData() {
+  return dispatch => dispatch({type : types.EPIC_LIST_CLEAR})
+}

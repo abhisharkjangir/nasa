@@ -22,7 +22,7 @@ class App extends React.Component {
             <MuiThemeProvider>
               <div>
                 <CircularProgress color='white'/>
-                <h3>Loading</h3>
+                <h3>Loading...</h3>
               </div>
             </MuiThemeProvider>
           </div>

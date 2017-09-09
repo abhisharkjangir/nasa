@@ -17,9 +17,13 @@ class EpicPage extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.actions.fetchEpicDates(this.props.epic.filter.type);
-    // let payload = {type :'natural',date : this.props.epic.filter.date};
+    // Runs on Component Load
+    // let payload = {type :this.props.epic.filter.type,date : this.props.epic.filter.date};
     // this.props.actions.fetchEpic(payload);
+  }
+
+  componentWillUnmount() {
+    // this.props.actions.clearEpicsData();
   }
 
   handleChange(event) {
@@ -40,19 +44,19 @@ class EpicPage extends React.Component {
         <div className="container-fluid">
           <div className="">
             <div className="row epic-filter">
-              <div className="col-md-4">
+              <div className="col-md-4 col-sm-4">
                 <SelectDropdown name="type" label="Epic Type" value={this.props.epic.filter.type}
                   onChange={this.handleChange}
                   className="form-control" options={this.props.epic.types}
-                  defaultoption="Select" placeholder="Select type"/>
+                defaultoption="Select" placeholder="Select type"/>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 col-sm-4">
                 <SelectDropdown name="date" label="Epic Date" value={this.props.epic.filter.date}
                   onChange={this.handleChange}
                   className="form-control" options={this.props.epic.dates}
-                  placeholder="Select Date"/>
+                placeholder="Select Date"/>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 col-sm-4">
                 <label className="invisible">Search</label>
                 <button className="btn btn-block" onClick={this.searchEpic}>Search</button>
               </div>

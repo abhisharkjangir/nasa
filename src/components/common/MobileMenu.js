@@ -16,7 +16,7 @@ class MonileMenu extends Component {
             <li><Link to='/apod'>Apod</Link></li>
             <li><Link to='/epic'>Epic</Link></li>
             <li><Link to='/earth'>Earth</Link></li>
-            <li><Link to='/about'>About</Link></li>
+            {/* <li><Link to='/about'>About</Link></li> */}
           </ul>
         </div>
       </div>

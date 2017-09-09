@@ -21,7 +21,7 @@ class HomePage extends React.Component{
                     <h2>Astronomy Picture of {Moment(this.props.apod.home.date).format('Do MMM YYYY')}</h2>
                     <h3> is "{this.props.apod.home.title}".</h3>
                     <p>Find more such pictures.</p>
-                  <h4>"Each day a different image or photograph of our universe is featured, along with a brief explanation written by a professional astronomer." <p className="text-right"><b>-Nasa Website</b></p></h4>
+                    <h4>"Each day a different image or photograph of our universe is featured, along with a brief explanation written by a professional astronomer." <p className="text-right"><b>-Nasa Website</b></p></h4>
                     <Link to='/apod'><RaisedButton label='Explore More' primary={true} /></Link>
                   </div>
                 </div>
@@ -51,17 +51,17 @@ class HomePage extends React.Component{
                   <div className="features-text">
                     <h3>Earth</h3>
                     <p className="">A recent industry report estimates that total annual value of $2.19 billion, far exceeding the multi-year total cost of building, launching, and managing Landsat satellites and sensors. The value is derived from consumer use of the data.</p>
-                  <Link to='/earth'><RaisedButton label='Explore Earth' primary={true} /></Link>
+                    <Link to='/earth'><RaisedButton label='Explore Earth' primary={true} /></Link>
                   </div>
                 </div>
 
-                <div className="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+                {/* <div className="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                   <div className="features-text">
                     <h3>MUCH MORE</h3>
                     <p className="">coming soon.</p>
-                    {/* <Link to='/epic'><RaisedButton label='Explore EPICs' primary={true} /></Link> */}
+                    <Link to='/epic'><RaisedButton label='Explore EPICs' primary={true} /></Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

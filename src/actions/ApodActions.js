@@ -51,16 +51,20 @@ export function fetchApod(date) {
 
 export function fetchHomeApod(date) {
   return function (dispatch) {
+    dispatch(beginAjaxCall());
     return fetch(`https://api.nasa.gov/planetary/apod?date=${Moment(date).format('YYYY-MM-DD')}&api_key=VnMVNR0ECoKfGa9z6V3vtwTHCZB6UI8MWNdndAew`).then((response) => {
       response.json().then(json => {
         if (!json.code) {
           dispatch(saveHomeApod(json))
+          dispatch(ajaxCallError());
         }else {
           toastr.error(json.msg)
+          dispatch(ajaxCallError());
         }
       })
     }).catch(error => {
       throw(error);
+      dispatch(ajaxCallError());
     })
   }
 }

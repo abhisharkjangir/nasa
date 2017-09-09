@@ -8,9 +8,7 @@ import {Router, browserHistory, hashHistory} from 'react-router';
 import {fetchEpicDates} from './actions/EpicActions';
 import {fetchHomeApod} from './actions/ApodActions';
 import routes from './routes';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
-// import '../node_modules/animate.css/source/animate.min.css';
 import './styles/styles.css';
 import {getYesterdayDate} from './service/commonService';
 
